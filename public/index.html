@@ -17,9 +17,19 @@
         }
     </script>
 </head>
-<body class="min-h-screen flex flex-col items-center justify-center p-4 bg-[url('/paint.jpg')] bg-cover bg-center">
-    <div style="position: absolute; left: 290px; width: 200px;">
+<body class="min-h-screen flex flex-col items-center justify-center p-4 bg-[url('/public/paint.jpg')] bg-cover bg-center">
+    <audio id="background-music" autoplay loop style="display: none;">
+        <source src="./balikKaNa.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <div class="absolute left-[290px] w-[200px] hidden xl:block">
         <img src="./kuromi.gif" alt="Animated GIF" class="w-full max-w-md">
+    </div>
+    <div class="absolute w-[250px] h-[250px]  bottom-[-40px] left-[20px] hidden sm:block">
+        <img src="./flower.jpg" alt="Animated GIF" class="w-full max-w-md">
+    </div>
+    <div class="absolute w-[250px] h-[250px]  bottom-[-40px] right-[20px] transform scale-x-[-1] hidden sm:block">
+        <img src="./flower.jpg" alt="img" class="w-full max-w-md">
     </div>
     <main class="max-w-lg w-full bg-white rounded-lg shadow-lg p-10 ">
         <div class="text-center mb-8">
@@ -37,9 +47,8 @@
         </blockquote>
 
         <form id="valentineForm" class="space-y-4 text-justify italic">
-            <div class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">Hello, Pretty! I hope you'll appreciate this message of mine, as well as this website that i created.
-                My love for you will be always and never dies. Its still you that ilove, all i want, cherished, long for, that i always thought, and care.  I want to court you more and more, and i hope you give me one last chance to
-                prove myself to you. Imissyou so much, pretty. Comeback to me napo. Will you be my valentine, pretty?
+            <div class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">Hello, Pretty! I sincerely hope you find this message and the webpage I made useful.
+                My love for you will be always. You are still the one person I love, care about, cherish, long for, and think about.  I hope you will give me one final opportunity to court and pursue you. I'll prove myself to you. Pretty, Imissyou so much. Pretty, will you be my Valentine's Day?                
             </div>
             <button type="submit" class="w-full bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-md transition duration-300 flex items-center justify-center">
                 Yes
@@ -51,17 +60,10 @@
         </form>
     </main>
     <script>
-        document.getElementById('valentineForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const name = document.getElementById('recipientName').value;
-            const message = document.getElementById('message').value;
-            if (name && message) {
-                alert(`Valentine's card sent to ${name}!`);
-                document.getElementById('recipientName').value = '';
-                document.getElementById('message').value = '';
-            } else {
-                alert('Please fill out all fields.');
-            }
+        document.addEventListener('click', () => {
+            const audio = document.getElementById('background-music');
+            audio.play();
+            document.removeEventListener('click', arguments.callee);
         });
     </script>
 </body>
